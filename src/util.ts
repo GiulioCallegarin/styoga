@@ -1,17 +1,19 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function shuffle(array: any[]) {
+import { promises as fs } from "fs";
+
+export function shuffle<T>(array: T[]): void {
   let currentIndex = array.length;
 
-  // While there remain elements to shuffle...
-  while (currentIndex != 0) {
-
-    // Pick a remaining element...
-    const randomIndex: number = Math.floor(Math.random() * currentIndex);
+  while (currentIndex !== 0) {
+    const randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
-    // And swap it with the current element.
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
+    const tmp = array[currentIndex]!;
+    array[currentIndex] = array[randomIndex]!;
+    array[randomIndex] = tmp;
   }
+}
+
+export async function readJson<T>(filePath: string): Promise<T> {
+  const file = await fs.readFile(filePath, "utf8");
+  return JSON.parse(file) as T;
 }

@@ -4,11 +4,11 @@ export default function FindMe(props: { data: { findme: { caption: string, adres
   const { data } = props
 
   return (
-    <div className="flex flex-col border-zinc-400 border-1 rounded-2xl p-4 w-full md:w-1/4">
+    <div className="flex flex-col border-zinc-400 border rounded-2xl p-4 w-full md:w-1/4">
       <h1 className="text-2xl text-center">{data.findme.caption}</h1>
       {data.findme.adresses.map((a, i) => (
         <div className="mt-4" key={i}>
-          <a href={a.geo} target="_blank">
+          <a href={a.geo} target="_blank" rel="noopener noreferrer">
             <div className="flex items-center gap-2">
               <MapPin />
               <div>
@@ -26,10 +26,10 @@ export default function FindMe(props: { data: { findme: { caption: string, adres
       <a href={`tel:${data.findme.phone}`}>
         <h3 className="mt-3 flex gap-2"><Phone /> {data.findme.phone}</h3>
       </a>
-      <a href={data.findme.instagram.url} target="_blank">
+  <a href={data.findme.instagram.url} target="_blank" rel="noopener noreferrer">
         <h3 className="mt-3 flex gap-2"><Instagram /> {data.findme.instagram.username}</h3>
       </a>
-      <a href={data.findme.whatsapp.url} target="_blank">
+  <a href={data.findme.whatsapp.url} target="_blank" rel="noopener noreferrer">
         <h3 className="mt-3 flex gap-2"><MessageCircle /> {data.findme.whatsapp.number}</h3>
       </a>
     </div>

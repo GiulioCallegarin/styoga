@@ -1,27 +1,21 @@
 import { promises as fs } from 'fs';
-import { shuffle } from "~/util";
-import HomeTile from "./home/HomeTile";
-import HomeGallery from "./home/HomeGallery";
+import { readJson, shuffle } from "~/util";
+import HomeTile from "./home/CustomTile";
+import Gallery from "./home/Gallery";
 import BlurredImage from "./BlurredImage";
 
 export default async function HomePage() {
-  const file = await fs.readFile(`${process.cwd()}/public/dynamic/content/home.json`, "utf8");
-  const images = await fs.readdir(`${process.cwd()}/public/dynamic/images/gallery`);
-  shuffle(images);
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const data: {
+  const data = await readJson<{
     title1: string;
     subtitle1: string;
     subtitle2: string;
     title2: string;
-    tiles: {
-      title: string;
-      description: string;
-      image: string;
-    }[];
+    tiles: { title: string; description: string; image: string }[];
     footing1: string;
     footing2: string;
-  } = JSON.parse(file);
+  }>(`${process.cwd()}/public/dynamic/content/home.json`);
+  const images = await fs.readdir(`${process.cwd()}/public/dynamic/images/gallery`);
+  shuffle(images);
 
   return (
     <div className="flex flex-col items-center">
@@ -31,7 +25,7 @@ export default async function HomePage() {
         className="rounded-2xl w-full h-64"
         style={{ objectFit: "cover" }}
         alt=""
-        />
+      />
 
       <div className="flex flex-col gap-8 items-center">
         <h1 className="text-3xl mt-16">{data.title1}</h1>
@@ -72,10 +66,8 @@ export default async function HomePage() {
 
       <h3 className="mt-24 text-center">{data.footing1}</h3>
       <h3 className="mt-8 mb-24 text-center">{data.footing2}</h3>
-      
-      <HomeGallery
-        images={images}
-      />
+
+      <Gallery images={images} />
 
     </div >
   );

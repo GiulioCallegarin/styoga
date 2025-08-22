@@ -1,13 +1,11 @@
-import { promises as fs } from 'fs';
+import { readJson } from "~/util";
 import BlurredImage from "../BlurredImage";
 
 export default async function AboutPage() {
-  const file = await fs.readFile(`${process.cwd()}/public/dynamic/content/about.json`, "utf8");
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const data: {
-    paragraphs: string[];
-  } = JSON.parse(file);
-  
+  const data = await readJson<{ paragraphs: string[] }>(
+    `${process.cwd()}/public/dynamic/content/about.json`
+  );
+
   return (
     <div className="flex flex-col gap-8 items-center">
       <BlurredImage

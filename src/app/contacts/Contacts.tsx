@@ -1,7 +1,7 @@
 export default function Contacts(props: { data: { title: string } }) {
   const { data } = props
   return (
-    <div className="flex flex-col border-zinc-400 border-1 rounded-2xl p-4 w-full md:w-3/4">
+    <div className="flex flex-col border-zinc-400 border rounded-2xl p-4 w-full md:w-3/4">
       <h1 className="text-2xl text-center">{data.title}</h1>
       <div className="flex flex-col md:flex-row mt-4">
         <input type="text" name="name" id="input-name" placeholder="NOME E COGNOME" className="flex-grow border border-zinc-400 rounded-xl p-2 m-2" />

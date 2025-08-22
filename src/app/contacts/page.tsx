@@ -1,34 +1,20 @@
-import { promises as fs } from 'fs';
 import FindMe from "./FindMe";
 import Contacts from "./Contacts";
 import BlurredImage from "../BlurredImage";
+import { readJson } from "~/util";
 
 export default async function ContactsPage() {
-  const file = await fs.readFile(`${process.cwd()}/public/dynamic/content/contacts.json`, "utf8");
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const data: {
+  const data = await readJson<{
     title: string,
     findme: {
       caption: string,
-      adresses: {
-        geo: string,
-        address: string,
-        city: string,
-        cap: string
-        openings: string
-      }[],
+      adresses: { geo: string; address: string; city: string; cap: string; openings: string }[],
       email: string,
       phone: string,
-      instagram: {
-        username: string,
-        url: string
-      },
-      whatsapp: {
-        number: string,
-        url: string
-      }
+      instagram: { username: string; url: string },
+      whatsapp: { number: string; url: string }
     }
-  } = JSON.parse(file);
+  }>(`${process.cwd()}/public/dynamic/content/contacts.json`);
 
   return (
     <div className="flex flex-col gap-8 items-center">
