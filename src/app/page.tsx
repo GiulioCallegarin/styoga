@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { promises as fs } from 'fs';
 import { shuffle } from "~/util";
+import HomeTile from "./home/HomeTile";
 
 export default async function HomePage() {
   const file = await fs.readFile(`${process.cwd()}/public/dynamic/content/home.json`, "utf8");
@@ -48,6 +49,28 @@ export default async function HomePage() {
           height={256}
         />
       </div>
+
+      <h1 className="text-3xl mt-8 text-center">{data.title2}</h1>
+      <div className="flex flex-col w-full gap-4 px-4">
+        {data.tiles.map((tile, index) => (
+          <HomeTile
+            key={index}
+            alignment={index % 2 === 0 ? "right" : "left"}
+            title={tile.title}
+            description={tile.description}
+            image={tile.image}
+            offsets={{
+              first: Math.floor(Math.random() * 100),
+              second: Math.floor(Math.random() * 100),
+              third: Math.floor(Math.random() * 100),
+              fourth: Math.floor(Math.random() * 100)
+            }}
+          />
+        ))}
+      </div>
+
+      <h3 className="mt-16 text-center">{data.footing1}</h3>
+      <h3 className="mt-8 text-center">{data.footing2}</h3>
     </div >
   );
 }
