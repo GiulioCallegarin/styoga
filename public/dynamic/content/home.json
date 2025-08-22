@@ -1,0 +1,32 @@
+{
+  "title1": "Benvenuti a Sentiero Yoga",
+  "subtitle1": "Il tuo spazio di equilibrio e consapevolezza a Conegliano.\nSentiero Yoga è un’idea, un cammino fatto di presenza, respiro e consapevolezza.",
+  "subtitle2": "Pratichiamo Hatha Yoga e meditazione, ogni persona è accolta con semplicità, rispetto e attenzione.\nUno spazio tranquillo e armonioso in cui ritrovare il proprio centro, liberarsi dallo stress e coltivare una connessione profonda con sé stessi.",
+
+  "title2": "Cosa troverai lungo il Sentiero",
+  "tiles": [
+    {
+      "title": "Hatha Yoga",
+      "description": "Lezioni settimanali di Hatha Yoga con meditazione guidata",
+      "image": "/dynamic/images/home/tile_1.jpg"
+    },
+    {
+      "title": "Attenzione",
+      "description": "Piccoli gruppi, attenzione personale",
+      "image": "/dynamic/images/home/tile_2.jpg"
+    },
+    {
+      "title": "Clima",
+      "description": "Un clima sereno, senza giudizio",
+      "image": "/dynamic/images/home/tile_3.jpg"
+    },
+    {
+      "title": "Stile di Vita",
+      "description": "Spunti per portare lo yoga nella vita quotidiana",
+      "image": "/dynamic/images/home/tile_4.jpg"
+    }
+  ],
+
+  "footing1": "Vieni a trovarci a Conegliano sulle colline di Ogliano per una lezione di prova!\nOgni cammino comincia da un passo, ogni respiro è un nuovo inizio.",
+  "footing2": "Ti aspettiamo sul Sentiero."
+}
