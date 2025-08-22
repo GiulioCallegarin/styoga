@@ -1,12 +1,18 @@
 "use client"
 import Masonry from "react-responsive-masonry";
 import { useEffect, useState } from "react";
-import Lightbox from "yet-another-react-lightbox";
 import BlurredImage from "../BlurredImage";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { Thumbnails, Zoom } from "yet-another-react-lightbox/plugins";
 import { motion } from "motion/react"
+import {
+  Lightbox,
+  isImageFitCover,
+  isImageSlide,
+  useLightboxProps,
+  type Slide,
+} from "yet-another-react-lightbox";
 
 export default function Gallery(props: { images: string[] }) {
   const { images } = props;
@@ -80,21 +86,39 @@ function GalleryImage({ image, index, setIndex }: HomeGalleryImageProps) {
   );
 }
 
+function isNextJsImage(slide: Slide) {
+  return (
+    isImageSlide(slide) &&
+    typeof slide.width === "number" &&
+    typeof slide.height === "number"
+  );
+}
+
 type Rect = { width: number; height: number };
-type Slide = { src: string; blurDataURL?: string };
 
-function NextJsImage({ slide, rect }: { slide: unknown; rect: Rect }) {
-  const width = Math.max(1, Math.round(rect.width));
-  const height = Math.max(1, Math.round(rect.height));
+function NextJsImage({ slide, rect }: { slide: Slide; rect: Rect }) {
+  const {
+    carousel: { imageFit },
+  } = useLightboxProps();
+  const cover = isImageSlide(slide) && isImageFitCover(slide, imageFit);
+  if (!isNextJsImage(slide)) return undefined;
+  const width = !cover
+    ? Math.round(
+        Math.min(rect.width, (rect.height / slide.height!) * slide.width!),
+      )
+    : rect.width;
 
-  if (!slide || typeof slide !== "object" || !("src" in (slide as Record<string, unknown>))) return null;
-
+  const height = !cover
+    ? Math.round(
+        Math.min(rect.height, (rect.width / slide.width!) * slide.height!),
+      )
+    : rect.height;
   return (
     <div style={{ position: "relative", width, height }}>
       <BlurredImage
         alt=""
-        src={(slide as Slide).src}
-        style={{ objectFit: "contain" }}
+        src={(slide as { src: string }).src}
+        style={{ objectFit: cover ? "cover" : "contain" }}
       />
     </div>
   );
