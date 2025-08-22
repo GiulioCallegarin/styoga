@@ -21,18 +21,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geist.variable}`}>
-      <body className="bg-zinc-900 text-zinc-400 text-l whitespace-pre-line">
-        <div className="flex flex-col h-screen w-screen">
-          <NavBar />
-          <div className="flex flex-grow flex-row max-w-full max-h-full overflow-auto justify-center">
-            <div className="w-full flex flex-col items-center h-full">
-              <div className="max-w-7xl min-w-3/5 w-full px-4 sm:px-6 lg:px-8 mt-8 flex-grow">
-                {children}
-              </div>
-              <Footer />
-            </div>
+      <body className="bg-zinc-900 text-zinc-400 text-l whitespace-pre-line min-h-screen flex flex-col">
+        <NavBar />
+        <main className="flex-grow w-full flex justify-center mt-16">
+          <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 mt-4">
+            {children}
           </div>
-        </div>
+        </main>
+        <Footer />
       </body>
     </html>
   );
