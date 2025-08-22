@@ -8,11 +8,11 @@ https://sentieroyoga.netlify.app
 - [ ] NavBar
   - [x] Navigation
   - [x] Show/Hide on scroll
-  - [ ] Top Snail
+  - [x] Top Snail
 
 - [ ] Home
   - [x] Content
-  - [ ] Animations
+  - [x] Animations
     - [x] Sliding Tiles
     - [x] Gallery
   

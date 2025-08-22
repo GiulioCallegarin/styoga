@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { routes } from "./routes";
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import AnimatedLogo from "./AnimatedLogo";
 
 function Routes(props: { closeMenu: () => void; isOpen?: boolean }) {
   const className =
@@ -46,7 +46,6 @@ export default function NavBar() {
   const toggleNavBar = () => setIsClick(!isClick);
   const closeMenu = () => setIsClick(false);
 
-  // Hide/show navbar on scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -61,7 +60,6 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  // Close menu when clicking outside
   useEffect(() => {
     if (!isClick) return;
     const handleClickOutside = (event: MouseEvent) => {
@@ -86,12 +84,12 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" onClick={closeMenu}>
-              <div className="flex items-center gap-2 text-xl font-serif">
-                <Image src="/logo.png" alt="Logo" width={48} height={48} />
+            <div className="flex items-center gap-2 text-xl font-serif">
+              <AnimatedLogo />
+              <Link href="/" onClick={closeMenu}>
                 SENTIERO YOGA
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center space-x-4">
@@ -105,31 +103,31 @@ export default function NavBar() {
               onClick={toggleNavBar}
             >
               <div className="relative w-6 h-6">
-                  <svg
-                    className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${isClick ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'}`}
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16m-7 6h7" />
-                  </svg>
-                  <svg
-                    className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${isClick ? 'opacity-100 rotate-0' : 'opacity-0 rotate-180'}`}
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor" >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </div>
+                <svg
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${isClick ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'}`}
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                <svg
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${isClick ? 'opacity-100 rotate-0' : 'opacity-0 rotate-180'}`}
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor" >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
             </button>
           </div>
         </div>
