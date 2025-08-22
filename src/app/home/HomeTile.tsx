@@ -1,7 +1,7 @@
 "server-only"
 
-import Image from "next/image";
 import HomeTileContainer from "./HomeTileContainer";
+import BlurredImage from "../BlurredImage";
 
 export default function HomeTile(props: { offsets: {first: number, second: number, third: number, fourth: number}, alignment: "left" | "right", title: string, description: string, image: string }) {
   const {
@@ -23,13 +23,11 @@ export default function HomeTile(props: { offsets: {first: number, second: numbe
               <h3>{description}</h3>
             </div>
           )}
-          <Image
+          <BlurredImage
             src={image}
-            alt="Placeholder"
             className="rounded-2xl w-1/4 aspect-1/1 md:aspect-3/2 relative"
             style={{ objectFit: "cover" }}
-            width={512}
-            height={512}
+            alt=""
           />
           {alignment === "left" && (
             <div className="flex flex-col gap-2 grow">

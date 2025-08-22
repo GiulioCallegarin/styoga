@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { promises as fs } from 'fs';
 import FindMe from "./FindMe";
 import Contacts from "./Contacts";
+import BlurredImage from "../BlurredImage";
 
 export default async function ContactsPage() {
   const file = await fs.readFile(`${process.cwd()}/public/dynamic/content/contacts.json`, "utf8");
@@ -32,13 +32,11 @@ export default async function ContactsPage() {
 
   return (
     <div className="flex flex-col gap-8 items-center">
-      <Image
+      <BlurredImage
         src="/dynamic/images/contacts/landing.jpg"
-        alt="Placeholder"
         className="rounded-2xl w-full h-64"
         style={{ objectFit: "cover" }}
-        width={800}
-        height={256}
+        alt=""
       />
       <div className="flex flex-col md:flex-row w-full gap-4">
         <Contacts data={data} />

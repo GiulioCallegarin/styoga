@@ -1,15 +1,13 @@
-import Image from "next/image";
+import BlurredImage from "../BlurredImage";
 
 export default function EventsPage() {
   return (
     <div className="flex flex-col gap-8 items-center">
-      <Image
+      <BlurredImage
         src="/dynamic/images/events/landing.jpg"
-        alt="Placeholder"
         className="rounded-2xl w-full h-64"
         style={{ objectFit: "cover" }}
-        width={800}
-        height={256}
+        alt=""
       />
     </div>
   );

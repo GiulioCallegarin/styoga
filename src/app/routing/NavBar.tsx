@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { routes } from "./routes";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 function Routes(props: { closeMenu: () => void; isOpen?: boolean }) {
@@ -40,29 +40,46 @@ export default function NavBar() {
   const [isClick, setIsClick] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const toggleNavBar = () => setIsClick(!isClick);
   const closeMenu = () => setIsClick(false);
 
+  // Hide/show navbar on scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        // scrolling down
         setShow(false);
       } else {
-        // scrolling up
         setShow(true);
       }
-
       setLastScrollY(currentScrollY);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    if (!isClick) return;
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(target)
+      ) {
+        closeMenu();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isClick]);
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-zinc-950 transition-transform duration-300 ${show ? "translate-y-0" : "-translate-y-full"}`}>
@@ -83,6 +100,7 @@ export default function NavBar() {
           </div>
           <div className="md:hidden flex items-center">
             <button
+              ref={buttonRef}
               className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 transition-all duration-300"
               onClick={toggleNavBar}
             >
@@ -116,7 +134,10 @@ export default function NavBar() {
           </div>
         </div>
       </div>
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isClick ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}>
+      <div
+        ref={menuRef}
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isClick ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
+      >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Routes closeMenu={closeMenu} isOpen={isClick} />
         </div>

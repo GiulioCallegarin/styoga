@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { promises as fs } from 'fs';
+import BlurredImage from "../BlurredImage";
 
 export default async function AboutPage() {
   const file = await fs.readFile(`${process.cwd()}/public/dynamic/content/about.json`, "utf8");
@@ -10,13 +10,11 @@ export default async function AboutPage() {
   
   return (
     <div className="flex flex-col gap-8 items-center">
-      <Image
+      <BlurredImage
         src="/dynamic/images/about/landing.jpg"
-        alt="Placeholder"
         className="rounded-2xl w-full h-64"
         style={{ objectFit: "cover" }}
-        width={800}
-        height={256}
+        alt=""
       />
       <div className="flex flex-col md:flex-row gap-8 items-center">
         <div className="flex flex-col gap-8">

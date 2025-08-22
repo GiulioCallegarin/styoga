@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { motion } from "motion/react"
+import BlurredImage from "../BlurredImage";
 
 
 type HomeGalleryImageProps = {
@@ -15,13 +15,11 @@ export default function HomeGalleryImage({ image, index, setIndex }: HomeGallery
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1, ease: "easeIn" }}
     >
-      <Image
+      <BlurredImage
       key={index}
       src={`/dynamic/images/gallery/${image}`}
-      alt={"image"}
-      width={800}
-      height={600}
       className="rounded-2xl w-full"
+      alt=""
       onClick={() => setIndex(index)}
     />
     </motion.div>

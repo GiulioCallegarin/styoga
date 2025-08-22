@@ -2,8 +2,8 @@ import "~/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
-import NavBar from "../routing/NavBar";
-import Footer from "~/routing/Footer";
+import NavBar from "./routing/NavBar";
+import Footer from "~/app/routing/Footer";
 
 export const metadata: Metadata = {
   title: "Sentiero Yoga",

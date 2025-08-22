@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { promises as fs } from 'fs';
 import { shuffle } from "~/util";
 import HomeTile from "./home/HomeTile";
 import HomeGallery from "./home/HomeGallery";
+import BlurredImage from "./BlurredImage";
 
 export default async function HomePage() {
   const file = await fs.readFile(`${process.cwd()}/public/dynamic/content/home.json`, "utf8");
@@ -26,14 +26,12 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col items-center">
       <section id="home" />
-      <Image
+      <BlurredImage
         src="/dynamic/images/home/landing.jpg"
-        alt="Placeholder"
         className="rounded-2xl w-full h-64"
         style={{ objectFit: "cover" }}
-        width={800}
-        height={256}
-      />
+        alt=""
+        />
 
       <div className="flex flex-col gap-8 items-center">
         <h1 className="text-3xl mt-16">{data.title1}</h1>
@@ -42,13 +40,11 @@ export default async function HomePage() {
             <h3>{data.subtitle1}</h3>
             <h3>{data.subtitle2}</h3>
           </div>
-          <Image
+          <BlurredImage
             src="/dynamic/images/home/intro.jpg"
-            alt="Placeholder"
             className="rounded-2xl w-3/4 md:w-1/2"
             style={{ objectFit: "cover" }}
-            width={800}
-            height={256}
+            alt=""
           />
         </div>
       </div>
