@@ -35,7 +35,7 @@ export default async function HomePage() {
         height={256}
       />
 
-      <h1 className="text-3xl mt-8">{data.title1}</h1>
+      <h1 className="text-3xl mt-8 text-center">{data.title1}</h1>
       <div className="flex flex-col md:flex-row gap-8 items-center">
         <div className="flex flex-col gap-8">
           <h3>{data.subtitle1}</h3>

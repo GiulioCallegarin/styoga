@@ -6,7 +6,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 function Routes(props: { closeMenu: () => void, isOpen?: boolean }) {
-  const className = "block hover:bg-zinc-400 hover:text-zinc-900 rounded-lg p-2 transition-all duration-200";
+  const className = "block hover:bg-zinc-400 hover:text-zinc-950 rounded-lg p-2 transition-all duration-200";
 
   const routes_list = [
     { href: routes.home, label: "Home" },

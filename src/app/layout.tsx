@@ -26,7 +26,7 @@ export default function RootLayout({
           <NavBar />
           <div className="flex flex-grow flex-row max-w-full max-h-full overflow-auto justify-center">
             <div className="w-full flex flex-col items-center h-full">
-              <div className="max-w-7xl min-w-3/5 px-4 sm:px-6 lg:px-8 mt-8 flex-grow">
+              <div className="max-w-7xl min-w-3/5 w-full px-4 sm:px-6 lg:px-8 mt-8 flex-grow">
                 {children}
               </div>
               <Footer />
