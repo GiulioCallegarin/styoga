@@ -2,6 +2,7 @@ import Image from "next/image";
 import { promises as fs } from 'fs';
 import { shuffle } from "~/util";
 import HomeTile from "./home/HomeTile";
+import HomeGallery from "./home/HomeGallery";
 
 export default async function HomePage() {
   const file = await fs.readFile(`${process.cwd()}/public/dynamic/content/home.json`, "utf8");
@@ -71,6 +72,10 @@ export default async function HomePage() {
 
       <h3 className="mt-16 text-center">{data.footing1}</h3>
       <h3 className="mt-8 text-center">{data.footing2}</h3>
+
+      <HomeGallery
+        images={images}
+       />
     </div >
   );
 }
