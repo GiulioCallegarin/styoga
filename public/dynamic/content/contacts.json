@@ -1,0 +1,32 @@
+{
+  "title": "CONTATTAMI PER MAGGIORI INFORMAZIONI",
+  "findme": {
+    "caption": "COME TROVARMI",
+    "adresses": [
+      {
+        "geo": "https://www.google.it/maps/place/Statua+di+Hachik%C5%8D/@35.6589959,139.7004564,21z/data=!4m14!1m7!3m6!1s0x60188b78491b9667:0x1d5a39ab94bbb8d9!2sPiazza+Hachik%C5%8D!8m2!3d35.6590699!4d139.7007259!16s%2Fg%2F11rfd7xvjj!3m5!1s0x60188b57efbd57c7:0x217e9d9fe306fba!8m2!3d35.6590579!4d139.7006293!16s%2Fg%2F122cnh70?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D",
+        "address": "Via Lumachina 2",
+        "city": "Ogliano (TV)",
+        "cap": "33321",
+        "openings": "Lunedì e martedì\ndalle 12:00 alle 16:00"
+      },
+      {
+        "geo": "https://www.google.it/maps/place/Maidcafe+Maidreamin+Akihabara+idol-dori+Store/@35.7012325,139.7692824,17z/data=!3m2!4b1!5s0x60188c1de95eac65:0xc83aa3da4fc911a1!4m6!3m5!1s0x60188c1de96f230d:0x3971972150c91f94!8m2!3d35.7012282!4d139.7718573!16s%2Fg%2F1tf6rsw1?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D",
+        "address": "Via Lumacona 45",
+        "city": "Conegliano (TV)",
+        "cap": "33123",
+        "openings": "Mercoledì e venerdì\ndalle 17:00 alle 21:00"
+      }
+    ],
+    "email": "lumachina@lumacona.it",
+    "phone": "+39 3928460968",
+    "instagram": {
+      "username": "sentieroyoga",
+      "url": "https://instagram.com/sentieroyoga"
+    },
+    "whatsapp": {
+      "number": "+39 3928460968",
+      "url": "https://wa.me/3928460968"
+    }
+  }
+}
