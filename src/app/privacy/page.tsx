@@ -26,7 +26,7 @@ export default function PrivacyPage() {
             <p className="mt-2">
               <b>ASD Sentiero Yoga</b>
               <br />
-              Via Palladio 7, San Fior, 33120
+              Via Palladio 7, San Fior (TV), 33120
               <br />
               Email: {" "}
               <a

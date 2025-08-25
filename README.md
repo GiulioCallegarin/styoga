@@ -27,8 +27,8 @@ https://sentieroyoga.netlify.app
   - [x] Content
   - [ ] Mail Send
 
-- [ ] Footer
-  - [ ] Content
-  - [ ] Policy
+- [x] Footer
+  - [x] Content
+  - [x] Policy
 
 - [ ] 404
