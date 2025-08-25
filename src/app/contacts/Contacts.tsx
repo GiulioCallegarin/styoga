@@ -50,36 +50,32 @@ export default function Contacts(props: { data: { title: string, email: string }
     if (!isValid || !consent) return;
 
     setLoading(true);
-    try {
-      const res = await fetch(`https://formsubmit.co/${data.email}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-        }),
-      });
-
-      if (!res.ok) {
-        throw new Error(`Invio fallito (${res.status})`);
-      }
-
+    const response = await sendMail();
+    if (response.ok) {
       setName("");
       setEmail("");
       setMessage("");
-      setConsent(false);
+      setConsent(false); 
       setTouched({});
       setSubmitted(false);
       alert("Messaggio inviato! Ti contatteremo al più presto.");
-    } catch (err) {
-      console.error(err);
-      alert("Si è verificato un problema durante l'invio. Riprova più tardi.");
-    } finally {
-      setLoading(false);
+    } else {
+      console.error(response);
+      alert("Si è verificato un errore durante l'invio del messaggio.");
+    }
+    setLoading(false);
+  };
+
+  const sendMail = async () => {
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+      return res;
+    } catch (error) {
+      return new Response(JSON.stringify({ error: String(error) }), { status: 500 });
     }
   };
 
@@ -94,97 +90,97 @@ export default function Contacts(props: { data: { title: string, email: string }
         </div>
       )}
       <form onSubmit={onSubmit} noValidate aria-busy={loading} className="flex flex-col border-zinc-400 border rounded-2xl p-4 w-full md:w-3/4">
-      <h1 className="text-2xl text-center">{data.title}</h1>
-      <div className="flex flex-col md:flex-row mt-4">
-        <div className="flex-grow m-2">
-          <input
-            type="text"
-            name="name"
-            id="input-name"
-            placeholder="NOME E COGNOME"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onBlur={() => setTouched((t) => ({ ...t, name: true }))}
-            aria-invalid={showError("name")}
+        <h1 className="text-2xl text-center">{data.title}</h1>
+        <div className="flex flex-col md:flex-row mt-4">
+          <div className="flex-grow m-2">
+            <input
+              type="text"
+              name="name"
+              id="input-name"
+              placeholder="NOME E COGNOME"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onBlur={() => setTouched((t) => ({ ...t, name: true }))}
+              aria-invalid={showError("name")}
+              disabled={loading}
+              className={`w-full border rounded-xl p-2 outline-none ${showError("name") ? "border-red-700" : "border-zinc-400"}`}
+            />
+            {showError("name") && (
+              <p className="text-red-800 text-sm mt-1">{errors.name}</p>
+            )}
+          </div>
+          <div className="flex-grow m-2">
+            <input
+              type="email"
+              name="email"
+              id="input-email"
+              placeholder="EMAIL"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={() => setTouched((t) => ({ ...t, email: true }))}
+              aria-invalid={showError("email")}
+              disabled={loading}
+              className={`w-full border rounded-xl p-2 outline-none ${showError("email") ? "border-red-700" : "border-zinc-400"}`}
+            />
+            {showError("email") && (
+              <p className="text-red-800 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+        </div>
+        <div className="m-2 flex flex-col flex-grow">
+          <textarea
+            name="message"
+            id="textarea-message"
+            placeholder="MESSAGGIO"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onBlur={() => setTouched((t) => ({ ...t, message: true }))}
+            aria-invalid={showError("message")}
             disabled={loading}
-            className={`w-full border rounded-xl p-2 outline-none ${showError("name") ? "border-red-700" : "border-zinc-400"}`}
+            className={`h-full min-h-32 flex-grow border rounded-xl p-2 outline-none ${showError("message") ? "border-red-700" : "border-zinc-400"}`}
           />
-          {showError("name") && (
-            <p className="text-red-800 text-sm mt-1">{errors.name}</p>
+          {showError("message") && (
+            <p className="text-red-800 text-sm mt-1">{errors.message}</p>
           )}
         </div>
-        <div className="flex-grow m-2">
-          <input
-            type="email"
-            name="email"
-            id="input-email"
-            placeholder="EMAIL"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={() => setTouched((t) => ({ ...t, email: true }))}
-            aria-invalid={showError("email")}
-            disabled={loading}
-            className={`w-full border rounded-xl p-2 outline-none ${showError("email") ? "border-red-700" : "border-zinc-400"}`}
-          />
-          {showError("email") && (
-            <p className="text-red-800 text-sm mt-1">{errors.email}</p>
-          )}
+        <div className="inline-flex items-center justify-center">
+          <label className="flex items-center cursor-pointer relative">
+            <input type="checkbox"
+              checked={consent}
+              onChange={() => setConsent(!consent)}
+              className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-zinc-500 checked:border-zinc-800 checked:bg-blue-700"
+              disabled={loading}
+              id="check-with-link" />
+            <span className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                stroke="currentColor" strokeWidth="1">
+                <path fillRule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clipRule="evenodd"></path>
+              </svg>
+            </span>
+          </label>
+          <label className="ml-2 text-sm text-zinc-500">
+            <p>
+              Acconsento al trattamento dei miei dati personali per essere ricontattato, come indicato nell’
+              <Link
+                href="/privacy"
+                className="font-medium text-zinc-400 underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+              >
+                informativa privacy
+              </Link>
+              .
+            </p>
+          </label>
         </div>
-      </div>
-      <div className="m-2 flex flex-col flex-grow">
-        <textarea
-          name="message"
-          id="textarea-message"
-          placeholder="MESSAGGIO"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onBlur={() => setTouched((t) => ({ ...t, message: true }))}
-          aria-invalid={showError("message")}
-          disabled={loading}
-          className={`h-full min-h-32 flex-grow border rounded-xl p-2 outline-none ${showError("message") ? "border-red-700" : "border-zinc-400"}`}
-        />
-        {showError("message") && (
-          <p className="text-red-800 text-sm mt-1">{errors.message}</p>
-        )}
-      </div>
-      <div className="inline-flex items-center justify-center">
-        <label className="flex items-center cursor-pointer relative">
-          <input type="checkbox"
-            checked={consent}
-            onChange={() => setConsent(!consent)}
-            className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-zinc-500 checked:border-zinc-800 checked:bg-blue-700"
-            disabled={loading}
-            id="check-with-link" />
-          <span className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
-              stroke="currentColor" strokeWidth="1">
-              <path fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"></path>
-            </svg>
-          </span>
-        </label>
-        <label className="ml-2 text-sm text-zinc-500">
-          <p>
-            Acconsento al trattamento dei miei dati personali per essere ricontattato, come indicato nell’
-            <Link
-              href="/privacy"
-              className="font-medium text-zinc-400 underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
-            >
-              informativa privacy
-            </Link>
-            .
-          </p>
-        </label>
-      </div>
-      <button
-        type="submit"
-        className="bg-blue-700 hover:bg-blue-800 active:bg-blue-900 text-white rounded-xl p-2 m-2 disabled:bg-blue-700 disabled:cursor-not-allowed transition duration-300 ease-in-out disabled:opacity-60"
-        disabled={!consent || !isValid || loading}
-      >
-        {loading ? "INVIO…" : "INVIA"}
-      </button>
-    </form>
+        <button
+          type="submit"
+          className="bg-blue-700 hover:bg-blue-800 active:bg-blue-900 text-white rounded-xl p-2 m-2 disabled:bg-blue-700 disabled:cursor-not-allowed transition duration-300 ease-in-out disabled:opacity-60"
+          disabled={!consent || !isValid || loading}
+        >
+          {loading ? "INVIO…" : "INVIA"}
+        </button>
+      </form>
     </>
   );
 }

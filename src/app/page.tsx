@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import { readContentJson, shuffle } from "~/util";
 import HomeTile from "./home/CustomTile";
 import Gallery from "./home/Gallery";
-import BlurredImage from "./BlurredImage";
+import BlurredImage from "./components/BlurredImage";
 
 export default async function HomePage() {
   const data = await readContentJson<{

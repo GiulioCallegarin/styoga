@@ -1,5 +1,5 @@
 import { readContentJson } from "~/util";
-import BlurredImage from "../BlurredImage";
+import BlurredImage from "../components/BlurredImage";
 
 export default async function AboutPage() {
   const data = await readContentJson<{ paragraphs: { text: string; image: string; imageAlignment: string }[] }>(

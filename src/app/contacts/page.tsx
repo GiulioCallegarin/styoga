@@ -1,6 +1,6 @@
 import FindMe from "./FindMe";
 import Contacts from "./Contacts";
-import BlurredImage from "../BlurredImage";
+import BlurredImage from "../components/BlurredImage";
 import { readContentJson } from "~/util";
 
 export default async function ContactsPage() {

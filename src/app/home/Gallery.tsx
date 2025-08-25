@@ -1,7 +1,7 @@
 "use client"
 import Masonry from "react-responsive-masonry";
 import { useEffect, useState } from "react";
-import BlurredImage from "../BlurredImage";
+import BlurredImage from "../components/BlurredImage";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { Thumbnails, Zoom } from "yet-another-react-lightbox/plugins";

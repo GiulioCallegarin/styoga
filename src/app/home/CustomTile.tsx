@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
-import BlurredImage from "../BlurredImage";
+import BlurredImage from "../components/BlurredImage";
 
 export default function CustomTile(props: { offsets: { first: number, second: number, third: number, fourth: number }, alignment: "left" | "right", title: string, description: string, image: string }) {
   const {

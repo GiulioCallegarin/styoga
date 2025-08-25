@@ -1,4 +1,4 @@
-import BlurredImage from "../BlurredImage";
+import BlurredImage from "../components/BlurredImage";
 
 export default function EventsPage() {
   return (

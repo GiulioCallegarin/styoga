@@ -17,12 +17,15 @@
   },
   "dependencies": {
     "@deemlol/next-icons": "^0.1.9",
+    "@react-email/components": "^0.5.1",
     "@t3-oss/env-nextjs": "^0.12.0",
     "motion": "^12.23.12",
     "next": "^15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-email": "^4.2.8",
     "react-responsive-masonry": "^2.7.1",
+    "resend": "^6.0.1",
     "yet-another-react-lightbox": "^3.25.0",
     "zod": "^3.24.2"
   },
