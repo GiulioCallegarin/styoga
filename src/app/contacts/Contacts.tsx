@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 
 export default function Contacts(props: { data: { title: string } }) {
@@ -126,12 +127,12 @@ export default function Contacts(props: { data: { title: string } }) {
         <label className="ml-2 text-sm text-zinc-500">
           <p>
             Acconsento al trattamento dei miei dati personali per essere ricontattato, come indicato nell’
-            <a
+            <Link
               href="/privacy"
               className="font-medium text-zinc-400 underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
             >
               informativa privacy
-            </a>
+            </Link>
             .
           </p>
         </label>

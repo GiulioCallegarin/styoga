@@ -31,4 +31,4 @@ https://sentieroyoga.netlify.app
   - [x] Content
   - [x] Policy
 
-- [ ] 404
+- [x] 404

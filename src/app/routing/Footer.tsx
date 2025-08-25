@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { readJson } from "~/util";
 
 export default async function Footer() {
@@ -44,12 +45,12 @@ export default async function Footer() {
               </a>
             </p>
           </div>
-          <a
+          <Link
             href="/privacy"
             className="font-medium text-zinc-400 underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
           >
             Privacy Policy
-          </a>
+          </Link>
         </div>
       </div>
     </div>
