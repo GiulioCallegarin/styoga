@@ -1,11 +1,11 @@
 import { promises as fs } from 'fs';
-import { readJson, shuffle } from "~/util";
+import { readContentJson, shuffle } from "~/util";
 import HomeTile from "./home/CustomTile";
 import Gallery from "./home/Gallery";
 import BlurredImage from "./BlurredImage";
 
 export default async function HomePage() {
-  const data = await readJson<{
+  const data = await readContentJson<{
     title1: string;
     subtitle1: string;
     subtitle2: string;
@@ -13,7 +13,7 @@ export default async function HomePage() {
     tiles: { title: string; description: string; image: string }[];
     footing1: string;
     footing2: string;
-  }>(`${process.cwd()}/public/dynamic/content/home.json`);
+  }>("home.json");
   const images = await fs.readdir(`${process.cwd()}/public/dynamic/images/gallery`);
   shuffle(images);
 

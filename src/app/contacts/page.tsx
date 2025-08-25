@@ -1,20 +1,23 @@
 import FindMe from "./FindMe";
 import Contacts from "./Contacts";
 import BlurredImage from "../BlurredImage";
-import { readJson } from "~/util";
+import { readContentJson } from "~/util";
 
 export default async function ContactsPage() {
-  const data = await readJson<{
+  const data = await readContentJson<{
     title: string,
     findme: {
       caption: string,
       adresses: { geo: string; address: string; city: string; cap: string; openings: string }[],
-      email: string,
-      phone: string,
-      instagram: { username: string; url: string },
-      whatsapp: { number: string; url: string }
     }
-  }>(`${process.cwd()}/public/dynamic/content/contacts.json`);
+  }>("contacts.json");
+  const org = await readContentJson<{
+    email: string;
+    formEmail: string;
+    phone: string;
+    instagram: { username: string; url: string };
+    whatsapp: { number: string; url: string };
+  }>("org.json");
 
   return (
     <div className="flex flex-col gap-8 items-center justify-center h-full w-full">
@@ -25,8 +28,8 @@ export default async function ContactsPage() {
         alt=""
       />
       <div className="flex flex-col md:flex-row w-full gap-4">
-        <Contacts data={data} />
-        <FindMe data={data} />
+        <Contacts data={{ title: data.title, findme: { email: org.formEmail } }} />
+        <FindMe data={{ findme: { caption: data.findme.caption, adresses: data.findme.adresses, email: org.email, phone: org.phone, instagram: org.instagram, whatsapp: org.whatsapp } }} />
       </div>
     </div >
   );

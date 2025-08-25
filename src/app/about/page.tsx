@@ -1,9 +1,9 @@
-import { readJson } from "~/util";
+import { readContentJson } from "~/util";
 import BlurredImage from "../BlurredImage";
 
 export default async function AboutPage() {
-  const data = await readJson<{ paragraphs: { text: string; image: string; imageAlignment: string }[] }>(
-    `${process.cwd()}/public/dynamic/content/about.json`
+  const data = await readContentJson<{ paragraphs: { text: string; image: string; imageAlignment: string }[] }>(
+    "about.json"
   );
 
   return (

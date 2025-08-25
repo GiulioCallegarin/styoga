@@ -23,9 +23,9 @@ https://sentieroyoga.netlify.app
   - [x] Content
   - [x] Improve Layout
 
-- [ ] Contacts
+- [x] Contacts
   - [x] Content
-  - [ ] Mail Send
+  - [x] Mail Send
 
 - [x] Footer
   - [x] Content

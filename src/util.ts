@@ -17,3 +17,9 @@ export async function readJson<T>(filePath: string): Promise<T> {
   const file = await fs.readFile(filePath, "utf8");
   return JSON.parse(file) as T;
 }
+
+// Convenience helper to read from public/dynamic/content by filename
+export async function readContentJson<T>(fileName: string): Promise<T> {
+  const path = `${process.cwd()}/public/dynamic/content/${fileName}`;
+  return readJson<T>(path);
+}

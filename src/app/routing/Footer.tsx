@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { readJson } from "~/util";
+import { readContentJson } from "~/util";
 
 export default async function Footer() {
-  const data = await readJson<{
+  const data = await readContentJson<{
     name: string,
     address1: string,
     address2: string,
     piva: string,
     email: string,
     phone: string
-  }>(`${process.cwd()}/public/dynamic/content/footer.json`);
+  }>("org.json");
 
   return (
     <div className="flex bg-zinc-950 w-full mt-8 shrink-0 items-center justify-center" >

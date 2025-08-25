@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 
-export default function Contacts(props: { data: { title: string } }) {
+export default function Contacts(props: { data: { title: string, findme: { email: string } } }) {
   const { data } = props
   const [consent, setConsent] = useState(false);
 
@@ -43,10 +43,24 @@ export default function Contacts(props: { data: { title: string } }) {
     return !!errors[field] && (wasTouched ? true : submitted);
   };
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
     if (!isValid || !consent) return;
+
+    await fetch(`https://formsubmit.co/${data.findme.email}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    });
+
     setName("");
     setEmail("");
     setMessage("");

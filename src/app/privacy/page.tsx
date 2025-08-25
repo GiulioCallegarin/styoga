@@ -1,4 +1,15 @@
-export default function PrivacyPage() {
+import { readContentJson } from "~/util";
+
+export default async function PrivacyPage() {
+  const org = await readContentJson<{
+    name: string;
+    address1: string;
+    address2: string;
+    piva: string;
+    email: string;
+    phone: string;
+  }>("org.json");
+
   return (
     <div className="mx-auto max-w-3xl">
       <section className="rounded-xl border border-zinc-800/60 bg-zinc-900/60 p-6 sm:p-8 shadow-lg shadow-black/10 backdrop-blur supports-[backdrop-filter]:bg-zinc-900/40">
@@ -9,7 +20,7 @@ export default function PrivacyPage() {
 
         <div className="space-y-6 leading-relaxed text-zinc-400">
           <p>
-            La presente Privacy Policy descrive come ASD Sentiero Yoga tratta i dati personali degli utenti che utilizzano il sito {" "}
+            La presente Privacy Policy descrive come <b>{org.name}</b> tratta i dati personali degli utenti che utilizzano il sito {" "}
             <a
               href="https://sentieroyoga.it"
               target="_blank"
@@ -24,24 +35,24 @@ export default function PrivacyPage() {
           <section>
             <h2 className="mt-8 text-2xl font-semibold tracking-tight text-zinc-300">Titolare del trattamento</h2>
             <p className="mt-2">
-              <b>ASD Sentiero Yoga</b>
+              <b>{org.name}</b>
               <br />
-              Via Palladio 7, San Fior (TV), 33120
+              {org.address1}, {org.address2}
               <br />
               Email: {" "}
               <a
-                href="mailto:lumachina@lumacona.it"
+                href={`mailto:${org.email}`}
                 className="underline text-zinc-300 underline-offset-4 decoration-zinc-600 hover:text-zinc-100 hover:decoration-zinc-400 transition-colors"
               >
-                lumachina@lumacona.it
+                {org.email}
               </a>
               <br />
               Telefono: {" "}
               <a
-                href="tel:+39 3928460968"
+                href={`tel:${org.phone}`}
                 className="underline text-zinc-300 underline-offset-4 decoration-zinc-600 hover:text-zinc-100 hover:decoration-zinc-400 transition-colors"
               >
-                +39 3928460968
+                {org.phone}
               </a>
               <br />
               Rappresentante legale: Katia Nervo
@@ -83,10 +94,10 @@ export default function PrivacyPage() {
             <p className="mt-2">
               I dati vengono trasmessi direttamente tramite email all’indirizzo {" "}
               <a
-                href="mailto:lumachina@lumacona.it"
+                href={`mailto:${org.email}`}
                 className="underline text-zinc-300 underline-offset-4 decoration-zinc-600 hover:text-zinc-100 hover:decoration-zinc-400 transition-colors"
               >
-                lumachina@lumacona.it
+                {org.email}
               </a>
               {" "} e non sono memorizzati su database o archivi online.
               <br />
@@ -165,9 +176,9 @@ export default function PrivacyPage() {
               <li>
                 Email: {" "}
                 <a
-                  href="mailto:lumachina@lumacona.it"
+                  href={`mailto:${org.email}`}
                   className="underline text-zinc-300 underline-offset-4 decoration-zinc-600 hover:text-zinc-100 hover:decoration-zinc-400 transition-colors"
-                >lumachina@lumacona.it
+                >{org.email}
                 </a>
               </li>
               <li>
