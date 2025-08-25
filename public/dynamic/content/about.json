@@ -1,9 +1,29 @@
 {
   "paragraphs": [
-    "Sono Katia, lo Yoga e la meditazione sono compagni di viaggio fondamentali nella mia vita da molti anni. Il desiderio di esplorare sempre più a fondo questa disciplina millenaria mi ha condotto a intraprendere un corso di formazione triennale per diventare insegnante di Hatha Yoga ad ispirazione tantrica.",
-    "Questo percorso mi ha portato a conseguire diverse certificazioni,\ntra cui: RYT-250 PLUS attraverso un corso di 300 ore presso il Centro Yoga Yoko. Formazione in Yin Yoga Anatomy seguendo il metodo di Paul Grilley.\nNel 2023, il mio amore per lo Yoga mi ha guidato fino in India, dove ho partecipato a un prezioso corso di aggiornamento a Rishikesh.",
-    "Oggi, lo Yoga è molto più di una pratica, è parte integrante della mia quotidianità. Ne percepisco un profondo beneficio a livello emotivo e mentale, sperimentando una maggiore serenità e chiarezza interiore. Il mio desiderio è condividere la bellezza dello Yoga, non solo come sequenza di movimenti e consapevolezza del respiro, ma come un vero e proprio stile di vita che può portare equilibrio e benessere nella tua quotidianità.",
-    "Nel 2021 ho fondato l'associazione \"Sentiero Yoga\" dove insegno e condivido lo yoga a persone che sono diventate parte di una piccola comunità affezionata.\nDurante la lezione creiamo un'intensa connessione corpo mente e respiro, un ascolto profondo che valorizzerà tutti gli aspetti del muoversi consapevolmente.",
-    "Attualmente collaboro anche con centri yoga e palestre."
+    {
+      "text":     "Sono Katia, lo Yoga e la meditazione sono compagni di viaggio fondamentali nella mia vita da molti anni. Il desiderio di esplorare sempre più a fondo questa disciplina millenaria mi ha condotto a intraprendere un corso di formazione triennale per diventare insegnante di Hatha Yoga ad ispirazione tantrica.",
+      "image":    "",
+      "imageAlignment": ""
+    },
+    {
+      "text":     "Questo percorso mi ha portato a conseguire diverse certificazioni,\ntra cui: RYT-250 PLUS attraverso un corso di 300 ore presso il Centro Yoga Yoko. Formazione in Yin Yoga Anatomy seguendo il metodo di Paul Grilley.\nNel 2023, il mio amore per lo Yoga mi ha guidato fino in India, dove ho partecipato a un prezioso corso di aggiornamento a Rishikesh.",
+      "image":    "/dynamic/images/about/certificazioni.jpg",
+      "imageAlignment": "right"
+    },
+    {
+      "text":     "Oggi, lo Yoga è molto più di una pratica, è parte integrante della mia quotidianità. Ne percepisco un profondo beneficio a livello emotivo e mentale, sperimentando una maggiore serenità e chiarezza interiore. Il mio desiderio è condividere la bellezza dello Yoga, non solo come sequenza di movimenti e consapevolezza del respiro, ma come un vero e proprio stile di vita che può portare equilibrio e benessere nella tua quotidianità.",
+      "image":    "/dynamic/images/about/yoga.jpg",
+      "imageAlignment": "left"
+    },
+    {
+      "text":     "Nel 2021 ho fondato l'associazione \"Sentiero Yoga\" dove insegno e condivido lo yoga a persone che sono diventate parte di una piccola comunità affezionata.\nDurante la lezione creiamo un'intensa connessione corpo mente e respiro, un ascolto profondo che valorizzerà tutti gli aspetti del muoversi consapevolmente.",
+      "image":    "/dynamic/images/about/sentiero_yoga.jpg",
+      "imageAlignment": "right"
+    },
+    {
+      "text":     "Attualmente collaboro anche con centri yoga e palestre.",
+      "image":    "/dynamic/images/about/collaborazioni.jpg",
+      "imageAlignment": "left"
+    }
   ]
 }

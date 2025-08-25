@@ -5,12 +5,12 @@ https://excalidraw.com/#json=meldwbrFpfUUDR9jGvn3f,3tyCq87pvyfOW-x0yYIvTA
 https://sentieroyoga.netlify.app
 
 # TODO
-- [ ] NavBar
+- [x] NavBar
   - [x] Navigation
   - [x] Show/Hide on scroll
   - [x] Top Snail
 
-- [ ] Home
+- [x] Home
   - [x] Content
   - [x] Animations
     - [x] Sliding Tiles
@@ -19,10 +19,14 @@ https://sentieroyoga.netlify.app
 - [ ] Events
   - [ ] Dynamic Content
 
-- [ ] About
+- [x] About
   - [x] Content
-  - [ ] Improve Layout
+  - [x] Improve Layout
 
 - [ ] Contacts
   - [x] Content
   - [ ] Mail Send
+
+- [ ] Footer
+  - [ ] Content
+  - [ ] Policy

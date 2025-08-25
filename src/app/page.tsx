@@ -36,7 +36,7 @@ export default async function HomePage() {
           </div>
           <BlurredImage
             src="/dynamic/images/home/intro.jpg"
-            className="rounded-2xl w-3/4 md:w-1/2"
+            className="rounded-2xl w-4/5 md:w-1/2"
             style={{ objectFit: "cover" }}
             alt=""
           />

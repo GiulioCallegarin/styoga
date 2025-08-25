@@ -17,7 +17,7 @@ export default async function ContactsPage() {
   }>(`${process.cwd()}/public/dynamic/content/contacts.json`);
 
   return (
-    <div className="flex flex-col gap-8 items-center">
+    <div className="flex flex-col gap-8 items-center justify-center h-full w-full">
       <BlurredImage
         src="/dynamic/images/contacts/landing.jpg"
         className="rounded-2xl w-full h-64"
