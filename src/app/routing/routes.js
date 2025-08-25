@@ -4,4 +4,5 @@ export const routes = {
   events: "/events",
   contacts: "/contacts",
   gallery: "/#gallery",
+  privacy: "/privacy"
 };

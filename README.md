@@ -30,3 +30,5 @@ https://sentieroyoga.netlify.app
 - [ ] Footer
   - [ ] Content
   - [ ] Policy
+
+- [ ] 404

@@ -20,18 +20,47 @@ export default function FindMe(props: { data: { findme: { caption: string, adres
           <h3 className="mt-2 ml-8 text-zinc-500">{a.openings}</h3>
         </div>
       ))}
-      <a href={`mailto:${data.findme.email}`}>
-        <h3 className="mt-8 flex gap-2"><Mail /> {data.findme.email}</h3>
-      </a>
-      <a href={`tel:${data.findme.phone}`}>
-        <h3 className="mt-3 flex gap-2"><Phone /> {data.findme.phone}</h3>
-      </a>
-  <a href={data.findme.instagram.url} target="_blank" rel="noopener noreferrer">
-        <h3 className="mt-3 flex gap-2"><Instagram /> {data.findme.instagram.username}</h3>
-      </a>
-  <a href={data.findme.whatsapp.url} target="_blank" rel="noopener noreferrer">
-        <h3 className="mt-3 flex gap-2"><MessageCircle /> {data.findme.whatsapp.number}</h3>
-      </a>
+      <h3 className="mt-8 flex gap-2">
+        <Mail />
+        <a
+          href={`mailto:${data.findme.email}`}
+          className="underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+        >
+          {data.findme.email}
+        </a>
+      </h3>
+      <h3 className="mt-3 flex gap-2">
+        <Phone />
+        <a
+          href={`tel:${data.findme.phone}`}
+          className="underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+        >
+          {data.findme.phone}
+        </a>
+      </h3>
+      <h3 className="mt-3 flex gap-2">
+        <Instagram />
+        <a
+          href={data.findme.instagram.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+        >
+          {data.findme.instagram.username}
+        </a>
+      </h3>
+      <h3 className="mt-3 flex gap-2"
+      >
+        <MessageCircle />
+        <a
+          href={data.findme.whatsapp.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+        >
+          {data.findme.whatsapp.number}
+        </a>
+      </h3>
     </div>
   );
 }
