@@ -28,7 +28,7 @@ export default async function ContactsPage() {
         alt=""
       />
       <div className="flex flex-col md:flex-row w-full gap-4">
-        <Contacts data={{ title: data.title, findme: { email: org.formEmail } }} />
+        <Contacts data={{ title: data.title, email: org.formEmail }} />
         <FindMe data={{ findme: { caption: data.findme.caption, adresses: data.findme.adresses, email: org.email, phone: org.phone, instagram: org.instagram, whatsapp: org.whatsapp } }} />
       </div>
     </div >
