@@ -4,26 +4,33 @@
   "subtitle2": "Pratichiamo Hatha Yoga e meditazione, ogni persona è accolta con semplicità, rispetto e attenzione.\nUno spazio tranquillo e armonioso in cui ritrovare il proprio centro, liberarsi dallo stress e coltivare una connessione profonda con sé stessi.",
 
   "title2": "Cosa troverai lungo il Sentiero",
-  "tiles": [
+  "courses": [
     {
       "title": "Hatha Yoga",
-      "description": "Lezioni settimanali di Hatha Yoga con meditazione guidata",
-      "image": "/dynamic/images/home/tile_1.jpg"
+      "description": "L'Hatha Yoga, conosciuto anche come Yoga della forza, è una disciplina che agisce sul corpo fisico e sul corpo energetico, al fine di riportare l'equilibrio. Una lezione di Hatha yoga, comprende per lo più posizioni statiche e dinamiche un ritmo fluido e morbido. Viene data molta importanza alla respirazione, coordinando il respiro con il movimento.\nFra i molti benefici della pratica dello Yoga: una miglior respirazione, più elasticità fisica e mentale, un profondo rilassamento muscolare, sonno più rigenerante, stimola una postura migliore e rende più elastica la nostra colonna vertebrale.",
+      "image": "/dynamic/images/home/hata.jpg"
     },
+    {
+      "title": "Yin Yoga",
+      "description": "Lo Yin Yoga è una pratica lenta, profonda e rigenerante che ci invita a rallentare, ad ascoltare e a lasciar andare.Yin Yoga lavora sui tessuti connettivi del corpo , fascia, legamenti, articolazioni, attraverso posizioni mantenute a lungo, in completo rilassamento. Questo permette di raggiungere strati profondi del corpo e di stimolare in modo sottile ma potente il sistema energetico.\nOgni postura è un invito all’ascolto, alla quiete e alla consapevolezza.Lo Yin Yoga è adatto a chiunque desideri prendersi uno spazio per sé:\nsia ai principianti che vogliono avvicinarsi allo yoga con dolcezza, sia ai praticanti esperti che cercano un complemento alle pratiche più intense.\nÈ ideale anche per sportivi, professionisti stressati e chiunque voglia semplicemente rallentare e rigenerarsi.",
+      "image": "/dynamic/images/home/yin.jpg"
+    }
+  ],
+  "tiles": [
     {
       "title": "Attenzione",
       "description": "Piccoli gruppi, attenzione personale",
-      "image": "/dynamic/images/home/tile_2.jpg"
+      "image": "/dynamic/images/home/tile_1.jpg"
     },
     {
       "title": "Clima",
       "description": "Un clima sereno, senza giudizio",
-      "image": "/dynamic/images/home/tile_3.jpg"
+      "image": "/dynamic/images/home/tile_2.jpg"
     },
     {
       "title": "Stile di Vita",
       "description": "Spunti per portare lo yoga nella vita quotidiana",
-      "image": "/dynamic/images/home/tile_4.jpg"
+      "image": "/dynamic/images/home/tile_3.jpg"
     }
   ],
 
