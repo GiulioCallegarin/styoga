@@ -7,7 +7,13 @@ import "./src/env.js";
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    domains: ["sentieroyoga.netlify.app"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "sentieroyoga.netlify.app",
+        port: "",
+      },
+    ],
   },
 };
 
