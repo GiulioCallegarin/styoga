@@ -1,3 +1,52 @@
+.paragraph-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background: linear-gradient(135deg, hsl(221 83% 18% / 0.12), hsl(262 83% 20% / 0.10));
+  border-radius: var(--radius-card);
+  box-shadow: 0 2px 16px 0 hsl(240 10% 6% / 0.12);
+  padding: 2rem 2.5rem 2rem 2rem;
+  border: 1px solid var(--color-border);
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  transition: box-shadow 0.2s;
+  overflow: hidden;
+  min-height: 120px;
+  animation: fadeInUp 700ms cubic-bezier(.23,1.01,.32,1) both;
+}
+.paragraph-card::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: 6px 0 0 6px;
+  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-2));
+}
+.paragraph-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent) 60%, var(--color-accent-2));
+  box-shadow: 0 2px 8px hsl(221 83% 53% / 0.12);
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+.paragraph-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+  color: #e5e7eb;
+  word-break: break-word;
+}
 @import "tailwindcss";
 
 :root {
@@ -71,6 +120,21 @@ body {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
   background: linear-gradient(180deg, hsl(0 0% 100% / 0.02), hsl(0 0% 100% / 0.01));
+}
+
+.paragraph-card {
+  background: linear-gradient(135deg, hsl(221 83% 18% / 0.12), hsl(262 83% 20% / 0.10));
+  border-radius: var(--radius-card);
+  box-shadow: 0 2px 16px 0 hsl(240 10% 6% / 0.12);
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--color-border);
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  transition: box-shadow 0.2s;
+}
+.paragraph-card:hover {
+  box-shadow: 0 4px 24px 0 hsl(221 83% 53% / 0.18);
 }
 
 .btn-primary {
