@@ -7,7 +7,7 @@ import AnimatedLogo from "./AnimatedLogo";
 
 function Routes(props: { closeMenu: () => void; isOpen?: boolean }) {
   const className =
-    "block hover:bg-zinc-400 hover:text-zinc-950 rounded-lg p-2 transition-all duration-200";
+    "block px-3 py-2 rounded-lg transition-all duration-200 hover:text-white hover:bg-white/5 active:scale-[0.98]";
 
   const routes_list = [
     { href: routes.home, label: "Home" },
@@ -80,26 +80,26 @@ export default function NavBar() {
   }, [isClick]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 bg-zinc-950 transition-transform duration-300 ${show ? "translate-y-0" : "-translate-y-full"}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${show ? "translate-y-0" : "-translate-y-full"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="flex items-center gap-2 text-xl font-serif">
+            <div className="dark-glass px-3 py-1 flex items-center gap-2 text-xl">
               <AnimatedLogo />
               <Link href="/" onClick={closeMenu}>
-                SENTIERO YOGA
+                <span className="tracking-wide text-zinc-200">SENTIERO YOGA</span>
               </Link>
             </div>
           </div>
           <div className="hidden md:block">
-            <div className="ml-4 flex items-center space-x-4">
+            <div className="ml-4 dark-glass px-2 py-1 flex items-center space-x-2">
               <Routes closeMenu={closeMenu} isOpen={true} />
             </div>
           </div>
           <div className="md:hidden flex items-center">
             <button
               ref={buttonRef}
-              className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 transition-all duration-300"
+              className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-700/40 transition-all duration-300 glass"
               onClick={toggleNavBar}
             >
               <div className="relative w-6 h-6">
@@ -136,7 +136,7 @@ export default function NavBar() {
         ref={menuRef}
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isClick ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 glass mx-3">
           <Routes closeMenu={closeMenu} isOpen={isClick} />
         </div>
       </div>

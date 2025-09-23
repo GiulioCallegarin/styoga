@@ -16,19 +16,21 @@ export default function CustomTile(props: { offsets: { first: number, second: nu
     <div className="flex">
       {alignment === "left" && <div className="w-1/4 hidden md:block" />}
       <CustomTileContainer offsets={offsets} side={alignment}>
-        <div className="relative flex gap-4 w-full">
+        <div className="relative flex gap-4 w-full items-center">
           {alignment === "right" && (
             <div className="flex flex-col gap-2 grow">
               <h2 className="text-xl">{title}</h2>
               <h3>{description}</h3>
             </div>
           )}
-          <BlurredImage
-            src={image}
-            className="relative w-1/4 aspect-[1/1] md:aspect-[3/2] rounded-2xl"
-            style={{ objectFit: "cover" }}
-            alt=""
-          />
+          <div className="card overflow-hidden relative w-1/4 aspect-[1/1] md:aspect-[3/2]">
+            <BlurredImage
+              src={image}
+              className="w-full h-full"
+              style={{ objectFit: "cover" }}
+              alt=""
+            />
+          </div>
           {alignment === "left" && (
             <div className="flex flex-col gap-2 grow">
               <h2 className="text-xl">{title}</h2>
@@ -47,7 +49,7 @@ function CustomTileContainer(props: { offsets: { first: number, second: number, 
 
   return (
     <motion.div
-      className="relative flex gap-4 w-full md:w-3/4 border-zinc-400 border rounded-2xl p-4"
+      className="relative flex gap-4 w-full md:w-3/4 card p-4"
       initial={{ x: side === "right" ? -32 : 32, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       exit={{ x: side === "right" ? -32 : 32, opacity: 0 }}

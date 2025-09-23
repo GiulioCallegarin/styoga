@@ -20,26 +20,30 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col items-center">
       <section id="home" />
-      <BlurredImage
-        src="/dynamic/images/home/landing.jpg"
-        className="rounded-2xl w-full h-64"
-        style={{ objectFit: "cover" }}
-        alt=""
-      />
+      <div className="w-full card overflow-hidden">
+        <BlurredImage
+          src="/dynamic/images/home/landing.jpg"
+          className="w-full h-64"
+          style={{ objectFit: "cover" }}
+          alt=""
+        />
+      </div>
 
       <div className="flex flex-col gap-8 items-center">
         <h1 className="text-3xl mt-16">{data.title1}</h1>
         <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6 card p-4">
             <h3>{data.subtitle1}</h3>
             <h3>{data.subtitle2}</h3>
           </div>
-          <BlurredImage
-            src="/dynamic/images/home/intro.jpg"
-            className="rounded-2xl w-4/5 md:w-1/2"
-            style={{ objectFit: "cover" }}
-            alt=""
-          />
+          <div className="card overflow-hidden w-4/5 md:w-1/2">
+            <BlurredImage
+              src="/dynamic/images/home/intro.jpg"
+              className="w-full"
+              style={{ objectFit: "cover" }}
+              alt=""
+            />
+          </div>
         </div>
       </div>
 
@@ -67,7 +71,9 @@ export default async function HomePage() {
       <h3 className="mt-24 text-center">{data.footing1}</h3>
       <h3 className="mt-8 mb-24 text-center">{data.footing2}</h3>
 
-      <Gallery images={images} />
+      <div className="mt-8 w-full">
+        <Gallery images={images} />
+      </div>
 
     </div >
   );

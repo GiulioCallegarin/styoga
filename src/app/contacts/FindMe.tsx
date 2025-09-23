@@ -4,7 +4,7 @@ export default function FindMe(props: { data: { findme: { caption: string, adres
   const { data } = props
 
   return (
-    <div className="flex flex-col border-zinc-400 border rounded-2xl p-4 w-full md:w-1/4">
+    <div className="flex flex-col card p-4 w-full md:w-1/4">
       <h1 className="text-2xl text-center">{data.findme.caption}</h1>
       {data.findme.adresses.map((a, i) => (
         <div className="mt-4" key={i}>
@@ -24,7 +24,7 @@ export default function FindMe(props: { data: { findme: { caption: string, adres
         <Mail />
         <a
           href={`mailto:${data.findme.email}`}
-          className="underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+          className="underline underline-offset-4 decoration-zinc-500 hover:text-white hover:decoration-zinc-400 transition-colors"
         >
           {data.findme.email}
         </a>
@@ -33,7 +33,7 @@ export default function FindMe(props: { data: { findme: { caption: string, adres
         <Phone />
         <a
           href={`tel:${data.findme.phone}`}
-          className="underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+          className="underline underline-offset-4 decoration-zinc-500 hover:text-white hover:decoration-zinc-400 transition-colors"
         >
           {data.findme.phone}
         </a>
@@ -44,7 +44,7 @@ export default function FindMe(props: { data: { findme: { caption: string, adres
           href={data.findme.instagram.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+          className="underline underline-offset-4 decoration-zinc-500 hover:text-white hover:decoration-zinc-400 transition-colors"
         >
           {data.findme.instagram.username}
         </a>
@@ -56,7 +56,7 @@ export default function FindMe(props: { data: { findme: { caption: string, adres
           href={data.findme.whatsapp.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+          className="underline underline-offset-4 decoration-zinc-500 hover:text-white hover:decoration-zinc-400 transition-colors"
         >
           {data.findme.whatsapp.number}
         </a>
