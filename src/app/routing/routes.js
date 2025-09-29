@@ -1,7 +1,7 @@
 export const routes = {
   home: "/#home",
   about: "/about",
-  events: "/events",
+  events: "/courses-events",
   contacts: "/contacts",
   gallery: "/#gallery",
   privacy: "/privacy"

@@ -8,26 +8,36 @@ export default async function AboutPage() {
 
   return (
     <div className="flex flex-col gap-8 items-center">
-      <BlurredImage
-        src="/dynamic/images/about/landing.jpg"
-        className="rounded-2xl w-full h-64"
-        style={{ objectFit: "cover" }}
-        alt=""
-      />
+      <div className="w-full card overflow-hidden">
+        <BlurredImage
+          src="/dynamic/images/about/landing.jpg"
+          className="w-full h-64"
+          style={{ objectFit: "cover" }}
+          alt=""
+        />
+      </div>
       <div className="flex flex-col md:flex-row gap-8 items-center">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 w-full">
           {data.paragraphs.map((paragraph, index) => (
-            <div className={`flex flex-col ${paragraph.imageAlignment === "right" ? "md:flex-row" : "md:flex-row-reverse"} justify-between items-center gap-4`} key={index}>
-              <h3>{paragraph.text}</h3>
-              {paragraph.image?.length > 0 && (
-                <BlurredImage
-                  src={paragraph.image}
-                  className="rounded-2xl w-4/5 md:w-1/2 aspect-square"
-                  style={{ objectFit: "cover" }}
-                  alt=""
-                />
-              )}
-            </div>
+              <div
+                className={`flex flex-col md:flex-row ${paragraph.imageAlignment === "right" ? "md:flex-row" : "md:flex-row-reverse"} items-stretch gap-8 w-full`}
+                key={index}
+              >
+                {paragraph.image?.length > 0 && (
+                  <div className="flex-1 flex items-center justify-center p-0 md:p-6">
+                    <div className="card-image-container">
+                      <BlurredImage
+                        src={paragraph.image}
+                        className="w-full h-full object-cover"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                )}
+                <div className="glass flex-2 w-full flex flex-col justify-center">
+                  <span>{paragraph.text}</span>
+                </div>
+              </div>
           ))}
         </div>
       </div>

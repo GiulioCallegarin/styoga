@@ -76,12 +76,14 @@ function GalleryImage({ image, index, setIndex }: HomeGalleryImageProps) {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1, ease: "easeIn" }}
     >
-      <BlurredImage
+      <div className="card-image-container simple">
+        <BlurredImage
         src={`/dynamic/images/gallery/${image}`}
         className="rounded-2xl w-full"
         alt=""
         onClick={() => setIndex(index)}
       />
+      </div>
     </motion.div>
   );
 }

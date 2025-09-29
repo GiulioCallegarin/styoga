@@ -89,8 +89,8 @@ export default function Contacts(props: { data: { title: string, email: string }
           </div>
         </div>
       )}
-      <form onSubmit={onSubmit} noValidate aria-busy={loading} className="flex flex-col border-zinc-400 border rounded-2xl p-4 w-full md:w-3/4">
-        <h1 className="text-2xl text-center">{data.title}</h1>
+  <form onSubmit={onSubmit} noValidate aria-busy={loading} className="flex flex-col card p-4 w-full md:w-3/4">
+        <h2 className="text-2xl text-center">{data.title}</h2>
         <div className="flex flex-col md:flex-row mt-4">
           <div className="flex-grow m-2">
             <input
@@ -103,7 +103,7 @@ export default function Contacts(props: { data: { title: string, email: string }
               onBlur={() => setTouched((t) => ({ ...t, name: true }))}
               aria-invalid={showError("name")}
               disabled={loading}
-              className={`w-full border rounded-xl p-2 outline-none ${showError("name") ? "border-red-700" : "border-zinc-400"}`}
+              className={`w-full rounded-xl p-2 outline-none bg-transparent border ${showError("name") ? "border-red-700" : "border-zinc-700"}`}
             />
             {showError("name") && (
               <p className="text-red-800 text-sm mt-1">{errors.name}</p>
@@ -120,7 +120,7 @@ export default function Contacts(props: { data: { title: string, email: string }
               onBlur={() => setTouched((t) => ({ ...t, email: true }))}
               aria-invalid={showError("email")}
               disabled={loading}
-              className={`w-full border rounded-xl p-2 outline-none ${showError("email") ? "border-red-700" : "border-zinc-400"}`}
+              className={`w-full rounded-xl p-2 outline-none bg-transparent border ${showError("email") ? "border-red-700" : "border-zinc-700"}`}
             />
             {showError("email") && (
               <p className="text-red-800 text-sm mt-1">{errors.email}</p>
@@ -137,7 +137,7 @@ export default function Contacts(props: { data: { title: string, email: string }
             onBlur={() => setTouched((t) => ({ ...t, message: true }))}
             aria-invalid={showError("message")}
             disabled={loading}
-            className={`h-full min-h-32 flex-grow border rounded-xl p-2 outline-none ${showError("message") ? "border-red-700" : "border-zinc-400"}`}
+            className={`h-full min-h-32 flex-grow rounded-xl p-2 outline-none bg-transparent border ${showError("message") ? "border-red-700" : "border-zinc-700"}`}
           />
           {showError("message") && (
             <p className="text-red-800 text-sm mt-1">{errors.message}</p>
@@ -175,7 +175,7 @@ export default function Contacts(props: { data: { title: string, email: string }
         </div>
         <button
           type="submit"
-          className="bg-blue-700 hover:bg-blue-800 active:bg-blue-900 text-white rounded-xl p-2 m-2 disabled:bg-blue-700 disabled:cursor-not-allowed transition duration-300 ease-in-out disabled:opacity-60"
+          className="btn-primary rounded-xl p-2 m-2 disabled:opacity-60 disabled:cursor-not-allowed transition duration-300 ease-in-out"
           disabled={!consent || !isValid || loading}
         >
           {loading ? "INVIO…" : "INVIA"}

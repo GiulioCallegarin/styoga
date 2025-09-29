@@ -21,12 +21,14 @@ export default async function ContactsPage() {
 
   return (
     <div className="flex flex-col gap-8 items-center justify-center h-full w-full">
-      <BlurredImage
-        src="/dynamic/images/contacts/landing.jpg"
-        className="rounded-2xl w-full h-64"
-        style={{ objectFit: "cover" }}
-        alt=""
-      />
+      <div className="w-full card overflow-hidden">
+        <BlurredImage
+          src="/dynamic/images/contacts/landing.jpg"
+          className="w-full h-64"
+          style={{ objectFit: "cover" }}
+          alt=""
+        />
+      </div>
       <div className="flex flex-col md:flex-row w-full gap-4">
         <Contacts data={{ title: data.title, email: org.formEmail }} />
         <FindMe data={{ findme: { caption: data.findme.caption, adresses: data.findme.adresses, email: org.email, phone: org.phone, instagram: org.instagram, whatsapp: org.whatsapp } }} />

@@ -11,7 +11,7 @@ export default async function PrivacyPage() {
   }>("org.json");
 
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="card mx-auto max-w-3xl">
       <section className="rounded-xl border border-zinc-800/60 bg-zinc-900/60 p-6 sm:p-8 shadow-lg shadow-black/10 backdrop-blur supports-[backdrop-filter]:bg-zinc-900/40">
         <header className="mb-6 sm:mb-8">
           <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-zinc-200">Privacy Policy</h1>

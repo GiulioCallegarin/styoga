@@ -12,9 +12,10 @@ export default async function Footer() {
   }>("org.json");
 
   return (
-    <div className="flex bg-zinc-950 w-full mt-8 shrink-0 items-center justify-center" >
-      <div className="flex w-full h-full p-2 text-sm max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex-grow flex flex-col md:flex-row gap-4">
+    <div className="flex w-full mt-10 shrink-0 items-center justify-center">
+      <div className="flex w-full h-full p-4 text-sm max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="dark-glass flex w-full">
+          <div className="flex-grow p-4 flex flex-col md:flex-row gap-6">
           <div>
             <p>{data.name}</p>
             <div className="flex flex-col md:flex-row">
@@ -26,12 +27,12 @@ export default async function Footer() {
             <p>{data.address2}</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="ml-4 p-4 flex flex-col md:flex-row gap-6">
           <div>
             <p>
               <a
                 href={`mailto:${data.email}`}
-                className="underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+                className="underline underline-offset-4 decoration-zinc-500 hover:text-white hover:decoration-zinc-400 transition-colors"
               >
                 {data.email}
               </a>
@@ -39,7 +40,7 @@ export default async function Footer() {
             <p>
               <a
                 href={`tel:${data.phone}`}
-                className="underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+                className="underline underline-offset-4 decoration-zinc-500 hover:text-white hover:decoration-zinc-400 transition-colors"
               >
                 {data.phone}
               </a>
@@ -47,10 +48,11 @@ export default async function Footer() {
           </div>
           <Link
             href="/privacy"
-            className="font-medium text-zinc-400 underline underline-offset-4 decoration-zinc-500 hover:text-zinc-300 hover:decoration-zinc-400 transition-colors"
+            className="font-medium text-zinc-300 underline underline-offset-4 decoration-zinc-500 hover:text-white hover:decoration-zinc-400 transition-colors"
           >
             Privacy Policy
           </Link>
+        </div>
         </div>
       </div>
     </div>
