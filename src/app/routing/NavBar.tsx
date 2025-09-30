@@ -96,10 +96,10 @@ export default function NavBar() {
               <Routes closeMenu={closeMenu} isOpen={true} />
             </div>
           </div>
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden dark-glass flex items-center">
             <button
               ref={buttonRef}
-              className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-700/40 transition-all duration-300 glass"
+              className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-all duration-300"
               onClick={toggleNavBar}
             >
               <div className="relative w-6 h-6">
@@ -134,9 +134,9 @@ export default function NavBar() {
       </div>
       <div
         ref={menuRef}
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isClick ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
+        className={`md:hidden overflow-hidden dark-glass transition-all duration-300 ease-in-out ${isClick ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 glass mx-3">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 mx-3">
           <Routes closeMenu={closeMenu} isOpen={isClick} />
         </div>
       </div>

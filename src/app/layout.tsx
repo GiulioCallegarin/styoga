@@ -21,7 +21,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geist.variable} antialiased`}>
-      <body className="text-zinc-300 min-h-screen flex flex-col selection:bg-blue-700/30 selection:text-white">
+      <body className="text-zinc-300 min-h-screen flex flex-col selection:bg-blue-700/30 selection:text-white whitespace-pre-line">
         <div className="bg-grid" aria-hidden />
         <NavBar />
         <main className="flex-grow w-full flex justify-center mt-16">

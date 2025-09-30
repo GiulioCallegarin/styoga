@@ -11,8 +11,9 @@ export default async function HomePage() {
     subtitle1: string;
     subtitle2: string;
     title2: string;
-    courses: { title: string; description: string; image: string }[];
-    tiles: { title: string; description: string; image: string }[];
+    title3: string;
+    courses: { title: string; description: string; image: string; dates: string }[];
+    tiles: { title: string; description: string; image: string; dates: string }[];
     footing1: string;
     footing2: string;
   }>("home.json");
@@ -50,7 +51,7 @@ export default async function HomePage() {
 
       <div className="flex flex-col gap-8 items-center">
         <h1 className="text-3xl mt-16 text-center">{data.title2}</h1>
-        <div className="flex w-full gap-4 px-4">
+        <div className="flex w-full gap-4 px-4 flex-col md:flex-row">
           {data.courses.map((course, index) => (
             <CourseTile
               key={index}
@@ -63,7 +64,7 @@ export default async function HomePage() {
       </div>
 
       <div className="flex flex-col gap-8 items-center">
-        <h1 className="text-3xl mt-16 text-center">{data.title2}</h1>
+        <h1 className="text-3xl mt-16 text-center">{data.title3}</h1>
         <div className="flex flex-col w-full gap-4 px-4">
           {data.tiles.map((tile, index) => (
             <HomeTile
