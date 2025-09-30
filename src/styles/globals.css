@@ -62,7 +62,7 @@ body {
 /* Utilities */
 
 .dark-glass {
-  background: linear-gradient(to bottom right, hsl(240 10% 6% / 0.95), hsl(240 9% 10% / 0.8));
+  background: linear-gradient(to bottom right, hsl(240 10% 6% / 0.99), hsl(240 9% 10% / 0.95));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--color-border);

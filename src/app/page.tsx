@@ -35,16 +35,9 @@ export default async function HomePage() {
       <div className="flex flex-col gap-8 items-center">
         <h1 className="text-3xl mt-16">{data.title1}</h1>
         <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="flex flex-col gap-6 glass p-4">
+          <div className="flex flex-col gap-6 p-4 text-center">
             <h3>{data.subtitle1}</h3>
             <h3>{data.subtitle2}</h3>
-          </div>
-          <div className="card-image-container">
-            <BlurredImage
-              src="/dynamic/images/home/intro.jpg"
-              className="w-full h-full object-cover"
-              alt=""
-            />
           </div>
         </div>
       </div>
