@@ -34,7 +34,7 @@ export default async function AboutPage() {
                     </div>
                   </div>
                 )}
-                <div className="glass flex-2 w-full flex flex-col justify-center">
+                <div className={`${paragraph.image?.length > 0 ? "glass" : "text-center"} flex-2 w-full flex flex-col justify-center`}>
                   <span>{paragraph.text}</span>
                 </div>
               </div>

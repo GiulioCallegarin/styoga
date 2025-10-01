@@ -16,6 +16,7 @@ export default async function ContactsPage() {
     formEmail: string;
     phone: string;
     instagram: { username: string; url: string };
+    facebook: { username: string; url: string };
     whatsapp: { number: string; url: string };
   }>("org.json");
 
@@ -31,7 +32,7 @@ export default async function ContactsPage() {
       </div>
       <div className="flex flex-col md:flex-row w-full gap-4">
         <Contacts data={{ title: data.title, email: org.formEmail }} />
-        <FindMe data={{ findme: { caption: data.findme.caption, adresses: data.findme.adresses, email: org.email, phone: org.phone, instagram: org.instagram, whatsapp: org.whatsapp } }} />
+        <FindMe data={{ findme: { caption: data.findme.caption, adresses: data.findme.adresses, email: org.email, phone: org.phone, instagram: org.instagram, facebook: org.facebook, whatsapp: org.whatsapp } }} />
       </div>
     </div >
   );

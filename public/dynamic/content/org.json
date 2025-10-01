@@ -1,5 +1,5 @@
 {
-  "name": "ASD Sentiero Yoga",
+  "name": "Sentiero Yoga landing",
   "address1": "Via Santissima Trinità 39",
   "address2": "Conegliano (TV) 31015",
   "piva": "02359573980",
@@ -9,6 +9,10 @@
   "instagram": {
     "username": "sentieroyoga",
     "url": "https://instagram.com/sentieroyoga"
+  },
+  "facebook": {
+    "username": "Sentiero Yoga ASD",
+    "url": "https://www.facebook.com/share/14DaBcFn2TA/"
   },
   "whatsapp": {
     "number": "+39 3405263935",

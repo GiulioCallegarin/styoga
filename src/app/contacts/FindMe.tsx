@@ -1,6 +1,6 @@
-import { Mail, Phone, MapPin, Instagram, MessageCircle } from "@deemlol/next-icons";
+import { Mail, Phone, MapPin, Instagram, MessageCircle, Facebook } from "@deemlol/next-icons";
 
-export default function FindMe(props: { data: { findme: { caption: string, adresses: Array<{ geo: string, address: string, city: string, cap: string, openings: string }>, email: string, phone: string, instagram: { username: string, url: string }, whatsapp: { number: string, url: string } } } }) {
+export default function FindMe(props: { data: { findme: { caption: string, adresses: Array<{ geo: string, address: string, city: string, cap: string, openings: string }>, email: string, phone: string, instagram: { username: string, url: string }, facebook: { username: string, url: string }, whatsapp: { number: string, url: string } } } }) {
   const { data } = props
 
   return (
@@ -47,6 +47,17 @@ export default function FindMe(props: { data: { findme: { caption: string, adres
           className="underline underline-offset-4 decoration-zinc-500 hover:text-white hover:decoration-zinc-400 transition-colors"
         >
           {data.findme.instagram.username}
+        </a>
+      </p>
+      <p className="mt-3 flex gap-2">
+        <Facebook />
+        <a
+          href={data.findme.facebook.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-4 decoration-zinc-500 hover:text-white hover:decoration-zinc-400 transition-colors"
+        >
+          {data.findme.facebook.username}
         </a>
       </p>
       <p className="mt-3 flex gap-2"

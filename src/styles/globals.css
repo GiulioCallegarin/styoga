@@ -4,7 +4,7 @@
   /* tokens */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --color-bg: hsl(240 10% 6%);
+  --color-bg: rgb(18, 18, 21);
   --color-surface: hsl(240 9% 10%);
   --color-muted: hsl(240 5% 64%);
   --color-border: hsl(240 5% 26% / 0.6);
