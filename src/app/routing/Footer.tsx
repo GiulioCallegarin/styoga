@@ -28,7 +28,7 @@ export default async function Footer() {
           </div>
         </div>
         <div className="ml-4 p-4 flex flex-col md:flex-row gap-6">
-          <div>
+          <div className="grow">
             <p>
               <a
                 href={`mailto:${data.email}`}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { routes } from "./routes";
 import { useState, useEffect, useRef } from "react";
 import AnimatedLogo from "./AnimatedLogo";
+import { Menu, X } from "@deemlol/next-icons";
 
 function Routes(props: { closeMenu: () => void; isOpen?: boolean }) {
   const className =
@@ -84,7 +85,7 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="dark-glass px-3 py-1 flex items-center gap-2 text-xl">
+            <div className="dark-glass px-3 h-12 flex items-center justify-center gap-2 text-xl">
               <AnimatedLogo />
               <Link href="/" onClick={closeMenu}>
                 <span className="tracking-wide text-zinc-200">SENTIERO YOGA</span>
@@ -92,41 +93,25 @@ export default function NavBar() {
             </div>
           </div>
           <div className="hidden md:block">
-            <div className="ml-4 dark-glass px-2 py-1 flex items-center space-x-2">
+            <div className="ml-4 dark-glass px-2 h-12 flex items-center space-x-2">
               <Routes closeMenu={closeMenu} isOpen={true} />
             </div>
           </div>
-          <div className="md:hidden dark-glass flex items-center">
+          <div className="md:hidden dark-glass flex items-center justify-center h-12 w-12">
             <button
               ref={buttonRef}
               className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-all duration-300"
               onClick={toggleNavBar}
             >
               <div className="relative w-6 h-6">
-                <svg
-                  className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${isClick ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'}`}
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-                <svg
+                <X
                   className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${isClick ? 'opacity-100 rotate-0' : 'opacity-0 rotate-180'}`}
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor" >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                  size={24}
+                />
+                <Menu
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${!isClick ? 'opacity-100 rotate-0' : 'opacity-0 rotate-180'}`}
+                  size={24}
+                />
               </div>
             </button>
           </div>

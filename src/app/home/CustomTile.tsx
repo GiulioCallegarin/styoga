@@ -23,7 +23,7 @@ export default function CustomTile(props: { offsets: { first: number, second: nu
               <h3>{description}</h3>
             </div>
           )}
-          <div className="card overflow-hidden relative w-1/4 aspect-[1/1] md:aspect-[3/2]">
+          <div className="card overflow-hidden relative w-3/5 md:w-1/4 aspect-[1/1] md:aspect-[3/2]">
             <BlurredImage
               src={image}
               className="w-full h-full"
@@ -32,7 +32,7 @@ export default function CustomTile(props: { offsets: { first: number, second: nu
             />
           </div>
           {alignment === "left" && (
-            <div className="flex flex-col gap-2 grow">
+            <div className="flex flex-col gap-2">
               <h2 className="text-xl">{title}</h2>
               <h3>{description}</h3>
             </div>

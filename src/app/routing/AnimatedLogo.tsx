@@ -48,7 +48,7 @@ export default function AnimatedLogo() {
   return (
     <>
       {/* Anchor keeps layout; hidden when traveling so only overlay is visible */}
-      <span ref={anchorRef} style={{ display: "inline-block" }}>
+      <span ref={anchorRef} className="flex items-center justify-center">
         <motion.div
           onClick={onClick}
           style={{
@@ -60,7 +60,7 @@ export default function AnimatedLogo() {
           aria-label="Snail logo"
           role="img"
         >
-          <Image src="/logo.png" alt="Logo" width={48} height={48} />
+          <Image src="/logo.svg" alt="Logo" width={48} height={48} />
         </motion.div>
       </span>
 
@@ -89,7 +89,7 @@ export default function AnimatedLogo() {
           transition={{ duration: 1.0, ease: "easeInOut" }}
           onAnimationComplete={() => setStage(1)}
         >
-          <Image src="/logo.png" alt="Logo" width={overlay.width} height={overlay.height} />
+          <Image src="/logo.svg" alt="Logo" width={overlay.width} height={overlay.height} />
         </motion.div>
       )}
 
@@ -142,7 +142,7 @@ export default function AnimatedLogo() {
             }}
             style={{ display: "inline-block", position: "relative", zIndex: 1 }}
           >
-            <Image src="/logo.png" alt="Logo" width={overlay.width} height={overlay.height} />
+            <Image src="/logo.svg" alt="Logo" width={overlay.width} height={overlay.height} />
           </motion.div>
         </motion.div>
       )}
@@ -205,7 +205,7 @@ export default function AnimatedLogo() {
             }}
             style={{ display: "inline-block", position: "relative", zIndex: 1 }}
           >
-            <Image src="/logo.png" alt="Logo" width={overlay.width} height={overlay.height} />
+            <Image src="/logo.svg" alt="Logo" width={overlay.width} height={overlay.height} />
           </motion.div>
         </motion.div>
       )}
